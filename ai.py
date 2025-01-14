@@ -2,9 +2,9 @@ import cv2
 from ultralytics import YOLO
 
 # Charger le modèle YOLO
-model = YOLO("yolov8n.pt")  # Tu peux remplacer par 'yolov8s.pt', 'yolov8m.pt', etc.
+model = YOLO("yolov8n.pt")  
 
-# Initialiser la caméra (utilise 0 pour la webcam par défaut)
+# Initialiser la caméra 
 cap = cv2.VideoCapture(2)
 
 # Vérifie que la caméra est disponible
@@ -28,7 +28,7 @@ while True:
     # Afficher la frame annotée
     cv2.imshow("YOLOv8 Detection", annotated_frame)
 
-    # Quitte si 'q' est pressé
+    # Quitter si 'q' est pressé
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
