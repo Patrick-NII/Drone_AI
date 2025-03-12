@@ -1,7 +1,8 @@
 from ultralytics import YOLO
 
-# Load the model
-model = YOLO("yolov8n.pt")
+# Load the model yolov8x.pt Extra large model with high accuracy
+model = YOLO("yolov8x.pt")
 
 # Track the video source 0, save the output video in the project folder, name the output video as test_yolo, and show the output video
-test = model.track(source=0, save=True, project="./output", name="test_yolo", show=True)
+source_0_ = 0
+test = model.track(source=source_0_, save=True, project="./output", name="test_yolo", show=True)
