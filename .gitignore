@@ -1,3 +1,4 @@
 my-env
 runs/
 *.pt
+output/
