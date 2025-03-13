@@ -8,12 +8,12 @@ hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7, min_tracki
 mp_draw = mp.solutions.drawing_utils
 
 # Initialisation de la caméra
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 
 # Création d'un canevas pour dessiner
 canvas = None
 drawing_color = (0, 255, 0)  # Couleur du dessin (vert)
-brush_size = 5
+brush_size = 3
 
 # Variable pour suivre l'état du dessin
 drawing = False
