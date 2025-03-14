@@ -11,7 +11,7 @@ Ce dépôt contient la première version du **prototype IA** d'AeroSafe, incluan
 
 ### 🎯 Objectifs
 - Construire un **pipeline de données** pour préparer les entrées du modèle IA.
-- Développer et tester un **modèle simple** avec Python et scikit-learn.
+- Développer et tester un **modèle simple** avec Yolo et OpenCV.
 - Mettre en place un **dépôt Git organisé** pour le suivi du projet.
 
 ---
@@ -52,7 +52,7 @@ AeroSafe/
 - Python 3.8+
 - Git
 - Environnement virtuel (recommandé : `venv` ou `conda`)
-
+- Docker(pour la mimse en production)
 ### 🚀 Installation
 ```bash
 # Cloner le dépôt
@@ -93,9 +93,10 @@ python src/data_pipeline.py
 Tester une première version du modèle de détection de victimes avec un algorithme simple avant d’intégrer YOLO, Mediapipe ou ViTPose.
 
 ### 📜 Modèles testés
-✅ Régression Logistique
-✅ Random Forest
-✅ SVM (Support Vector Machine)
+YoloV8x
+Yolo12x
+Mediapipe
+
 
 ### 🚀 Entraînement & Évaluation
 ```bash
@@ -140,4 +141,4 @@ git push origin feature/data-pipeline
 📌 Intégration de **données réelles** des drones
 📌 Expérimentation avec **algorithmes avancés** (YOLO, Mediapipe, ViTPose)
 
-🚀 **AeroSafe : l’innovation qui sauve des vies.**
+
