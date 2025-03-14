@@ -11,38 +11,40 @@ Ce dépôt contient la première version du **prototype IA** d'AeroSafe, incluan
 
 ### 🎯 Objectifs
 - Construire un **pipeline de données** pour préparer les entrées du modèle IA.
-- Développer et tester un **modèle simple** avec Python et scikit-learn.
+- Développer et tester un **modèle simple** avec Yolo et OpenCV.
 - Mettre en place un **dépôt Git organisé** pour le suivi du projet.
 
 ---
 
 ## 🏗️ Architecture du Projet
 ```
-AeroSafe/
-│── src/                 # Code source
-│   ├── data_pipeline.py # Prétraitement des données
-│   ├── model_train.py   # Entraînement du modèle
-│   ├── model_eval.py    # Évaluation du modèle
-│   ├── utils.py         # Fonctions utilitaires
+📁 data
+│── 📁 sample_videos
+│── 📁 docs
+│   │── 📄 business-model-canvas.pdf
+│   │── 📄 Introduction du Projet: Drones ...
+│   │── 📄 Sans nom 1.pdf
 │
-│── data/                # Datasets utilisés
-│   ├── raw/             # Données brutes
-│   ├── processed/       # Données prétraitées
+📁 my-env (Environnement virtuel Python)
 │
-│── notebooks/           # Analyses et tests en Jupyter Notebook
-│   ├── data_exploration.ipynb
-│   ├── model_training.ipynb
-│   ├── model_evaluation.ipynb
+📁 notebooks (Dossiers pour les notebooks Jupyter)
 │
-│── docs/                # Documentation du projet
+📁 output (Résultats des tests YOLO)
 │
-│── tests/               # Scripts de test
-│   ├── test_pipeline.py
-│   ├── test_model.py
+📁 runs (Résultats des inférences YOLO)
 │
-│── .gitignore           # Fichiers à exclure du versionnement
-│── README.md            # Documentation principale
-│── requirements.txt     # Bibliothèques nécessaires
+📁 src (Code source principal)
+│── 📁 configs (Fichiers de configuration)
+│── 📁 models (Modèles entraînés ou architecture)
+│── 📄 app.py (Script principal de l'application)
+│── 📄 data_pipeline.py (Pipeline de traitement des données)
+│── 📄 frame.py (Gestion des frames vidéo)
+│── 📄 mediapipe.py (Utilisation de MediaPipe pour la détection)
+│
+📄 .gitignore (Fichier pour exclure certains fichiers dans Git)
+📄 README.md (Documentation du projet)
+📄 requirements.txt (Liste des dépendances Python)
+
 ```
 
 ---
@@ -52,7 +54,7 @@ AeroSafe/
 - Python 3.8+
 - Git
 - Environnement virtuel (recommandé : `venv` ou `conda`)
-
+- Docker(pour la mimse en production)
 ### 🚀 Installation
 ```bash
 # Cloner le dépôt
@@ -93,9 +95,10 @@ python src/data_pipeline.py
 Tester une première version du modèle de détection de victimes avec un algorithme simple avant d’intégrer YOLO, Mediapipe ou ViTPose.
 
 ### 📜 Modèles testés
-✅ Régression Logistique
-✅ Random Forest
-✅ SVM (Support Vector Machine)
+YoloV8x
+Yolo12x
+Mediapipe
+
 
 ### 🚀 Entraînement & Évaluation
 ```bash
@@ -140,4 +143,4 @@ git push origin feature/data-pipeline
 📌 Intégration de **données réelles** des drones
 📌 Expérimentation avec **algorithmes avancés** (YOLO, Mediapipe, ViTPose)
 
-🚀 **AeroSafe : l’innovation qui sauve des vies.**
+
