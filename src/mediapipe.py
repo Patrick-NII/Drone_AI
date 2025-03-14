@@ -3,17 +3,17 @@ import numpy as np
 import mediapipe as mp
 
 # Initialisation de MediaPipe Hands
-mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7, min_tracking_confidence=0.7)
-mp_draw = mp.solutions.drawing_utils
+mp_hands = mp.solutions.hands # type: ignore
+hands = mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.7, min_tracking_confidence=0.7) # type: ignore
+mp_draw = mp.solutions.drawing_utils # type: ignore
 
 # Initialisation de la caméra
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(0)
 
 # Création d'un canevas pour dessiner
 canvas = None
 drawing_color = (0, 255, 0)  # Couleur du dessin (vert)
-brush_size = 5
+brush_size = 3
 
 # Variable pour suivre l'état du dessin
 drawing = False
@@ -34,20 +34,20 @@ while cap.isOpened():
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     # Processer l'image pour détecter les mains
-    results = hands.process(rgb_frame)
+    results = hands.process(rgb_frame) # type: ignore
 
-    if results.multi_hand_landmarks:
-        for hand_landmarks in results.multi_hand_landmarks:
+    if results.multi_hand_landmarks: # type: ignore
+        for hand_landmarks in results.multi_hand_landmarks: # type: ignore
             # Dessiner les landmarks sur l'image
-            mp_draw.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
+            mp_draw.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS) # type: ignore
 
             # Extraire les coordonnées de l'index
-            index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
-            x, y = int(index_tip.x * frame.shape[1]), int(index_tip.y * frame.shape[0])
+            index_tip = hand_landmarks.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP] # type: ignore
+            x, y = int(index_tip.x * frame.shape[1]), int(index_tip.y * frame.shape[0]) # type: ignore
 
             # Vérifier si l'utilisateur dessine (proche du pouce)
-            thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP]
-            thumb_x, thumb_y = int(thumb_tip.x * frame.shape[1]), int(thumb_tip.y * frame.shape[0])
+            thumb_tip = hand_landmarks.landmark[mp_hands.HandLandmark.THUMB_TIP] # type: ignore
+            thumb_x, thumb_y = int(thumb_tip.x * frame.shape[1]), int(thumb_tip.y * frame.shape[0]) # type: ignore
             distance = np.sqrt((x - thumb_x)**2 + (y - thumb_y)**2)
 
             # Si l'index et le pouce sont proches, commencer à dessiner
