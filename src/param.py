@@ -53,9 +53,9 @@ BOX_COLORS = {
 DEFAULT_BOX_COLOR = (200, 200, 200)  # Gris clair
 
 # Paramètres du texte
-TEXT_COLOR = (0, 0, 255)  # Rouge
+TEXT_COLOR = (106, 90, 205)  # Couleur du texte (SlateBlue)
 TEXT_FONT = 0.6  # Taille du texte pour les labels
-TEXT_THICKNESS = 2  # Épaisseur du texte
+TEXT_THICKNESS = 0.8  # Épaisseur du texte
 
 
 # ==========================
