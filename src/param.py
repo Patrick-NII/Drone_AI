@@ -7,11 +7,11 @@
 # Modèle YOLO à utiliser (tu peux changer selon tes besoins)
 YOLO_MODEL = "yolo11x.pt"  
 
-# Seuil de confiance pour garder une détection (0.5 = équilibré, 0.3 = plus permissif)
-CONFIDENCE_THRESHOLD = 0.6  
+# Seuil de confiance pour garder une détection 
+CONFIDENCE_THRESHOLD = 0.5  
 
-# Seuil d'Intersection over Union (IoU) (0.6 = bon équilibre précision/rappel)
-IOU_THRESHOLD = 0.6  
+# Seuil d'Intersection over Union 
+IOU_THRESHOLD = 0.45  
 
 # Tracker utilisé pour le suivi des objets
 TRACKER = "bytetrack.yaml"
@@ -55,7 +55,7 @@ DEFAULT_BOX_COLOR = (200, 200, 200)  # Gris clair
 # Paramètres du texte
 TEXT_COLOR = (106, 90, 205)  # Couleur du texte (SlateBlue)
 TEXT_FONT = 0.6  # Taille du texte pour les labels
-TEXT_THICKNESS = 0.8  # Épaisseur du texte
+TEXT_THICKNESS = 2  # Épaisseur du texte
 
 
 # ==========================
