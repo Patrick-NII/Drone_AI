@@ -1,0 +1,9 @@
+my-env
+runs/
+*.pt
+output/
+
+# Mac & Python cache
+.DS_Store
+__pycache__/
+*.pyc
