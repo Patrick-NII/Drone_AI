@@ -11,7 +11,7 @@ YOLO_MODEL = "yolo11x.pt"
 CONFIDENCE_THRESHOLD = 0.5  
 
 # Seuil d'Intersection over Union 
-IOU_THRESHOLD = 0.45  
+IOU_THRESHOLD = 0.6  
 
 # Tracker utilisé pour le suivi des objets
 TRACKER = "bytetrack.yaml"
@@ -37,29 +37,52 @@ OUTPUT_DIR = "output"
 
 # Définition des couleurs pour chaque type d'objet (BGR format pour OpenCV)
 BOX_COLORS = {
-    "person": (0, 255, 0),         # Vert
-    "car": (255, 0, 0),            # Bleu
-    "truck": (0, 0, 255),          # Rouge
-    "motorcycle": (255, 165, 0),   # Orange
-    "bicycle": (128, 0, 128),      # Violet
-    "dog": (0, 255, 255),          # Cyan
-    "cat": (255, 192, 203),        # Rose
-    "bird": (75, 0, 130),          # Indigo
-    "boat": (255, 255, 0),         # Jaune
-    "traffic light": (0, 128, 128) # Bleu foncé
+    "Humain": (0, 255, 0),         # Vert
+    "Animal": (255, 192, 203),     # Rose
+    "Feu": (0, 0, 255),            # Rouge
+    "Fumée": (105, 105, 105),      # Gris foncé
+    "Véhicule": (255, 165, 0),     # Orange
+    "Danger": (0, 0, 0),           # Noir
+
+    # Pour compatibilité avec noms COCO si non regroupés
+    "person": (0, 255, 0),
+    "car": (255, 0, 0),
+    "truck": (0, 0, 255),
+    "motorcycle": (255, 165, 0),
+    "bicycle": (128, 0, 128),
+    "dog": (0, 255, 255),
+    "cat": (255, 192, 203),
+    "bird": (75, 0, 130),
+    "boat": (255, 255, 0),
+    "traffic light": (0, 128, 128)
 }
 
 # Couleur par défaut si l'objet n'est pas dans la liste
-DEFAULT_BOX_COLOR = (200, 200, 200)  # Gris clair
+DEFAULT_BOX_COLOR = (0, 255, 0)  # Vert clair
 
 # Paramètres du texte
-TEXT_COLOR = (106, 90, 205)  # Couleur du texte (SlateBlue)
-TEXT_FONT = 0.6  # Taille du texte pour les labels
-TEXT_THICKNESS = 2  # Épaisseur du texte
+TEXT_COLOR = (0, 255, 0)    # Texte en vert
+TEXT_FONT = 0.8             # Taille du texte
+TEXT_THICKNESS = 2          # Épaisseur du texte
+
+
+# ==========================
+#  LABELS SIMPLIFIÉS POUR LE SECOURISME
+# ==========================
+
+LABEL_GROUPS = {
+    "Humain": ["person"],
+    "Animal": ["dog", "cat", "horse", "cow", "sheep", "elephant", "zebra", "giraffe", "bird"],
+    "Feu": ["fire", "flame"],
+    "Fumée": ["smoke", "cloud"],
+    "Véhicule": ["car", "truck", "bus", "motorcycle", "bicycle", "train", "boat"],
+    "Danger": ["knife", "gun", "broken glass", "explosion", "falling debris"]
+}
 
 
 # ==========================
 #  DICTIONNAIRE DES OBJETS
+# (traductions - optionnel)
 # ==========================
 
 OBJECT_LABELS = {
@@ -142,6 +165,7 @@ OBJECT_LABELS = {
     "hair drier": "Sèche-cheveux",
     "toothbrush": "Brosse à dents"
 }
+
 
 # ==========================
 #  OPTIONS SUPPLÉMENTAIRES
