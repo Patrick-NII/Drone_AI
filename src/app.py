@@ -3,7 +3,8 @@ import os
 import yt_dlp
 from ultralytics import YOLO
 from datetime import datetime
-import param  # Importation des paramètres
+import param 
+
 
 # Fonction pour regrouper les classes selon les LABEL_GROUPS
 def get_simplified_label(cls_name):
@@ -88,9 +89,17 @@ else:
 
     if param.SAVE_PROCESSED_VIDEO:
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
-        fps = int(cap.get(cv2.CAP_PROP_FPS) or 30)
+        
+        # ✅ Récupération du FPS réel ou valeur par défaut
+        fps = cap.get(cv2.CAP_PROP_FPS)
+        print(f"[INFO] FPS original détecté : {fps}")
+        if fps is None or fps <= 1.0:
+            fps = 25.0  # Valeur par défaut si non détectée
+            print(f"[INFO] FPS par défaut appliqué : {fps}")
+
         width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+        
         writer = cv2.VideoWriter(output_video_path, fourcc, fps, (width, height))
 
     while cap.isOpened():
